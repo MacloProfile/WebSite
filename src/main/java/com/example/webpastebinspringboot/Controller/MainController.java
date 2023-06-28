@@ -1,5 +1,6 @@
-package com.example.webpastebinspringboot;
+package com.example.webpastebinspringboot.Controller;
 
+import com.example.webpastebinspringboot.MessageRepository;
 import com.example.webpastebinspringboot.domain.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
