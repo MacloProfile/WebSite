@@ -1,7 +1,7 @@
 package com.example.webpastebinspringboot;
 
-import com.example.webpastebinspringboot.domain.Base;
+import com.example.webpastebinspringboot.domain.Message;
 import org.springframework.data.repository.CrudRepository;
 
-public interface MessageRepository extends CrudRepository<Base, Long> {
+public interface MessageRepository extends CrudRepository<Message, Long> {
 }
