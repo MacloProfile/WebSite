@@ -17,13 +17,18 @@ public class MainController {
     private MessageRepository messageRepository;
 
     @GetMapping("/")
+    public String home(Model model) {
+        return "home";
+    }
+
+    @GetMapping("/main")
     public String main(Model model) {
         Iterable<Message> messages = messageRepository.findAll();
         model.addAttribute("messages", messages);
         return "main";
     }
 
-    @PostMapping("/")
+    @PostMapping("/main")
     public String add(Model model, @RequestParam String text, @RequestParam String tag) {
         Message message = new Message(text, tag);
         messageRepository.save(message);

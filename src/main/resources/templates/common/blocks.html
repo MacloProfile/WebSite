@@ -23,3 +23,9 @@
     </div>
   </footer>
 </div>
+
+<div th:fragment="logout">
+  <form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+  </form>
+</div>
