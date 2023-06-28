@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class MainController {
 
@@ -32,5 +34,13 @@ public class MainController {
         return "main";
     }
 
+    @PostMapping("filter")
+    public String messageFilter(@RequestParam String filter, Model model) {
+        List<Message> byTag = messageRepository.findByTag(filter);
+
+        model.addAttribute("messages", byTag);
+
+        return "main";
+    }
 
 }
