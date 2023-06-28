@@ -36,10 +36,13 @@ public class MainController {
 
     @PostMapping("filter")
     public String messageFilter(@RequestParam String filter, Model model) {
-        List<Message> byTag = messageRepository.findByTag(filter);
+        if (filter.isEmpty()) {
+            model.addAttribute("messages", messageRepository.findAll());
+        } else {
+            List<Message> byTag = messageRepository.findByTag(filter);
 
-        model.addAttribute("messages", byTag);
-
+            model.addAttribute("messages", byTag);
+        }
         return "main";
     }
 
