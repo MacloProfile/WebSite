@@ -1,4 +1,4 @@
-package com.example.webpastebinspringboot;
+package com.example.webpastebinspringboot.repositories;
 
 import com.example.webpastebinspringboot.domain.Message;
 import org.springframework.data.repository.CrudRepository;
