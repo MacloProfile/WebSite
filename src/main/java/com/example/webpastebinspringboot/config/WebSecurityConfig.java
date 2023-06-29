@@ -28,25 +28,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .anyRequest().authenticated()
+                    .antMatchers("/").permitAll()
+                    .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
+                    .formLogin()
+                    .loginPage("/login")
+                    .permitAll()
                 .and()
-                .logout()
-                .permitAll();
+                    .logout()
+                    .permitAll();
     }
+
     @Bean
     @Override
-    protected UserDetailsService userDetailsService() {
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("1")
-                        .password("1")
-                        .roles("USER")
-                        .build();
-        return new InMemoryUserDetailsManager(user);
+    protected void configure(AuthenticationManagerBuilder authentication) throws Exception {
+        authentication.jdbcAuthentication()
+                .dataSource(dataSource)
+                .passwordEncoder(NoOpPasswordEncoder.getInstance())
+                .usersByUsernameQuery("select username, password, active from users where username=?")
+                .authoritiesByUsernameQuery("select u.username, ur.roles from users u inner join user_role ur on u.id = ur.user_id where u.username=?");
+
     }
 }

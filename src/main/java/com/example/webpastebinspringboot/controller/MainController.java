@@ -1,4 +1,4 @@
-package com.example.webpastebinspringboot.Controller;
+package com.example.webpastebinspringboot.controller;
 
 import com.example.webpastebinspringboot.MessageRepository;
 import com.example.webpastebinspringboot.domain.Message;

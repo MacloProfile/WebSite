@@ -4,6 +4,7 @@
   <title>Spring Security Example </title>
 </head>
 <body>
+Login
 <div th:if="${param.error}">
   Invalid username and password.
 </div>
@@ -15,5 +16,7 @@
   <div><label> Password: <input type="password" name="password"/> </label></div>
   <div><input type="submit" value="Sign In"/></div>
 </form>
+<!--register link-->
+<a href="/registration">Add new user </a>
 </body>
 </html>
