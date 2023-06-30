@@ -24,8 +24,9 @@ public class MainController {
 
     @GetMapping("/main")
     public String main(@RequestParam(required = false) String filter ,Model model) {
-        Iterable<Message> messages = messageRepository.findAll();
+        Iterable<Message> messages;
 
+        //check filter status
         if (filter != null && !filter.isEmpty()) {
             messages = messageRepository.findByTag(filter);
         } else {
