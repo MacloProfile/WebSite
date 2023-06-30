@@ -22,7 +22,7 @@
     </div>
     <div>Список сообщений</div>
     <form method="get" action="/main">
-      <input type="text" name="filter">
+      <input type="text" name="filter" th:value="${param.filter}">
       <button type="submit">Найти</button>
     </form>
     <div th:each="message : ${messages}">
