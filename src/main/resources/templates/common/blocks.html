@@ -1,4 +1,5 @@
 <div th:fragment="begin">
+
   <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
     <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
       <span style="margin-right: 4px;"></span>
@@ -6,13 +7,25 @@
       QuixiTech
       </span>
 
-    </a>
+      <style>
+        .custom-button {
+          background-color: #007bff;
+          color: white;
+        }
+      </style>
 
+    </a>
     <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
       <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/"><h4>Main</h4></a>
       <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/test"><h4>Add an entry</h4></a>
       <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/test/add"><h4>My posts</h4></a>
-
+      <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/test/add">
+        <h4>
+          <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out" class="custom-button"/>
+          </form>
+        </h4>
+      </a>
 <!--      <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/user"><h4>Users</h4></a>-->
       <a class="py-2 link-body-emphasis text-decoration-none" href="#"></a>
     </nav>
@@ -26,11 +39,4 @@
 <!--      <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.3/getting-started/introduction/">getting started guide</a>.</p>-->
     </div>
   </footer>
-</div>
-
-<div th:fragment="logout">
-  <form th:action="@{/logout}" method="post">
-    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-    <input type="submit" value="Sign Out"/>
-  </form>
 </div>
