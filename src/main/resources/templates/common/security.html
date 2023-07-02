@@ -1,0 +1,20 @@
+<div th:fragment="adminRoot">
+  <!--protection of admin fields-->
+  <th:block th:with="known=${#request.getSession().getAttribute('SPRING_SECURITY_CONTEXT')}">
+
+    <!-- Checking if the 'known' variable is defined -->
+    <th:block th:if="${known}">
+      <th:block th:with="user=${known.authentication.principal}, name=${user.getUsername()}, isAdmin=${user.isAdmin()}">
+        <!-- Display the button only if the user is an admin -->
+        <a th:if="${isAdmin}" th:href="@{/user}">Admin Button</a>
+      </th:block>
+    </th:block>
+
+    <!-- Checking if the 'known' variable is not defined -->
+    <th:block th:unless="${known}">
+      <th:block th:with="name='unknown', isAdmin=false">
+      </th:block>
+    </th:block>
+
+  </th:block>
+</div>
