@@ -23,12 +23,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/registration").permitAll()
+                .antMatchers("/", "/registration", "/img/**", "/static/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/main") // Указываем URL для перенаправления после успешного входа
+                .defaultSuccessUrl("/main") // Specify the URL to redirect to after a successful login
                 .permitAll()
                 .and()
                 .logout()
