@@ -1,40 +1,42 @@
 <div th:fragment="begin">
-<!--  icon-->
-  <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-    <a href="/main" class="d-flex align-items-center link-body-emphasis text-decoration-none">
-      <span style="margin-right: 4px;"></span>
-      <span style="display: inline-block; border: 2px solid #007bff; padding: 4px 8px; width: 95px; height: 38px;font-weight: bold; margin-right: 4px;">
+  <header style="text-align: center">
+    <!--  icon-->
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a href="/main" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+        <span style="margin-right: 4px;"></span>
+        <span style="display: inline-block; border: 2px solid #007bff; padding: 4px 8px; width: 95px; height: 38px;font-weight: bold; margin-right: 4px;">
       QuixiTech
       </span>
 
-<!--      color for SingOut button-->
-      <style>
-        .custom-button {
-          background-color: #007bff;
-          color: white;
-        }
-      </style>
-    </a>
-
-<!--    admin button-->
-    <span style="margin-right: 10px;"></span>
-    <header th:insert="common/security :: adminRoot"></header>
-
-<!--    navbar-->
-    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-      <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/test"><h4>Add an entry</h4></a>
-      <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/test/add"><h4>My posts</h4></a>
-      <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/test/add">
-        <h4>
-          <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out" class="custom-button"/>
-          </form>
-        </h4>
+        <!--      color for SingOut button-->
+        <style>
+          .custom-button {
+            background-color: #007bff;
+            color: white;
+          }
+        </style>
       </a>
-<!--      <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/user"><h4>Users</h4></a>-->
-      <a class="py-2 link-body-emphasis text-decoration-none" href="#"></a>
-    </nav>
-  </div>
+
+      <!--    admin button-->
+      <span style="margin-right: 10px;"></span>
+      <header th:insert="common/security :: adminRoot"></header>
+
+      <!--    navbar-->
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/test"><h4>Add an entry</h4></a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/test/add"><h4>My posts</h4></a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/test/add">
+          <h4>
+            <form th:action="@{/logout}" method="post">
+              <input type="submit" value="Sign Out" class="custom-button"/>
+            </form>
+          </h4>
+        </a>
+        <!--      <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/user"><h4>Users</h4></a>-->
+        <a class="py-2 link-body-emphasis text-decoration-none" href="#"></a>
+      </nav>
+    </div>
+  </header>
 </div>
 
 <div th:fragment="end">
