@@ -2,49 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
 
-  <title>Spring Security Example</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f5f5f5;
-    }
+  <header th:insert="common/style :: styleRegister"></header>
 
-    .form-container form {
-      margin-bottom: 10px;
-    }
-
-    .form-container {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-container input[type="text"],
-    .form-container input[type="password"] {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .form-container input[type="password"] {
-      margin-bottom: 10px;
-    }
-
-    .form-container input[type="submit"] {
-      width: 100%;
-      padding: 8px;
-      background-color: #4caf50;
-      color: #ffffff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
 <div class="form-container">

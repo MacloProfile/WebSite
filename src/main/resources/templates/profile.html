@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <header th:insert="common/blocks :: begin"></header>
+
+</head>
+<body>
+<h3 th:text="'Login: ' + ${username}"></h3>
+<div th:if="${message}">
+    <span th:text="${message}"></span>
+</div>
+<form method="post">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">New password:</label>
+        <div class="col-sm-6">
+            <input type="password" name="password" class="form-control" placeholder="" />
+        </div>
+    </div>
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+    <button class="btn btn-primary" type="submit">Update</button>
+</form>
+</body>
+</html>
